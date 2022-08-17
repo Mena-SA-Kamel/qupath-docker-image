@@ -135,6 +135,9 @@ Icon=/home/ubuntu/Applications/QuPath-0.2.2/lib/QuPath-0.2.2.png" >> ~/.local/sh
 RUN cp ~/.local/share/applications/QuPath.desktop ~/.config/autostart/.
 RUN cp ~/.local/share/applications/QuPath.desktop ~/Desktop/.
 
+RUN chgrp -R 0 /root && \
+    chmod -R g=u /root
+    
 RUN chgrp -R 0 ~/Desktop/QuPath.desktop && \
     chmod -R g=u ~/Desktop/QuPath.desktop 
 # RUN chmod -R 755 ~/Desktop/QuPath.desktop
