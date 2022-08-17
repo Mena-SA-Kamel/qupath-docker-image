@@ -6,7 +6,7 @@
 
 FROM ubuntu:20.04 as system
 
-RUN adduser testuser root
+# RUN adduser testuser root
 
 RUN sed -i 's#http://archive.ubuntu.com/ubuntu/#mirror://mirrors.ubuntu.com/mirrors.txt#' /etc/apt/sources.list;
 
@@ -136,7 +136,7 @@ RUN cp ~/.local/share/applications/QuPath.desktop ~/.config/autostart/.
 RUN cp ~/.local/share/applications/QuPath.desktop ~/Desktop/.
 
 RUN chmod -R 755 ~/Desktop/QuPath.desktop
-RUN chown -R testuser:root ~/Desktop/QuPath.desktop
+# RUN chown -R testuser:root ~/Desktop/QuPath.desktop
 
 EXPOSE 80
 ENV HOME=/home/ubuntu \
@@ -144,5 +144,5 @@ ENV HOME=/home/ubuntu \
     RESOLUTION=2560x1440
 HEALTHCHECK --interval=30s --timeout=5s CMD curl --fail http://127.0.0.1:6079/api/health
 
-CMD ["/startup.sh"]
-#ENTRYPOINT ["/startup.sh"]
+# CMD ["/startup.sh"]
+ENTRYPOINT ["/startup.sh"]
