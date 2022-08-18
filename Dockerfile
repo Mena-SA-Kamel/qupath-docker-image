@@ -153,6 +153,15 @@ RUN chgrp -R 0 /etc/supervisor/conf.d/ \
     && chmod -R g+rwX /etc/supervisor/conf.d/ \
     && chmod -R g=u /etc/supervisor/conf.d/
 
+RUN chgrp -R 0 /var/log/supervisor/ \
+    && chmod -R g+rwX /var/log/supervisor/ \
+    && chmod -R g=u /var/log/supervisor/
+
+RUN chgrp -R 0 /etc/nginx/ \
+    && chmod -R g+rwX /etc/nginx/ \
+    && chmod -R g=u /etc/nginx/
+    
+
 EXPOSE 80
 ENV HOME=/home/ubuntu \
     SHELL=/bin/bash \
