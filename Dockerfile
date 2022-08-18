@@ -141,9 +141,9 @@ RUN chgrp -R 0 ~/Desktop/QuPath.desktop \
 && chmod -R g+rwX ~/Desktop/QuPath.desktop \
 && chmod -R g=u ~/Desktop/QuPath.desktop
 
-RUN chgrp -R 0 /root \
-    && chmod -R g+rwX /root \
-    && chmod -R g=u /root
+RUN chgrp -R 0 /root/ \
+    && chmod -R g+rwX /root/ \
+    && chmod -R g=u /root/
 
 RUN chgrp -R 0 /usr/local/bin/ \
     && chmod -R g+rwX /usr/local/bin/ \
