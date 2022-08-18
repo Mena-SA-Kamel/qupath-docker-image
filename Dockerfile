@@ -148,4 +148,4 @@ ENV HOME=/home/ubuntu \
     RESOLUTION=2560x1440
 HEALTHCHECK --interval=30s --timeout=5s CMD curl --fail http://127.0.0.1:6079/api/health
 
-ENTRYPOINT ["/startup.sh"]
+# ENTRYPOINT ["/startup.sh"]
