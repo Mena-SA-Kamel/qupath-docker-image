@@ -153,13 +153,13 @@ RUN chgrp -R 0 /etc/supervisor/conf.d/ \
     && chmod -R g+rwX /etc/supervisor/conf.d/ \
     && chmod -R g=u /etc/supervisor/conf.d/
 
-RUN chgrp -R 0 /var/log/supervisor/ \
-    && chmod -R g+rwX /var/log/supervisor/ \
-    && chmod -R g=u /var/log/supervisor/
+RUN chgrp -R 0 /var/ \
+    && chmod -R g+rwX /var/ \
+    && chmod -R g=u /var/
 
-RUN chgrp -R 0 /etc/nginx/ \
-    && chmod -R g+rwX /etc/nginx/ \
-    && chmod -R g=u /etc/nginx/
+RUN chgrp -R 0 /etc/ \
+    && chmod -R g+rwX /etc/ \
+    && chmod -R g=u /etc/
     
 
 EXPOSE 80
