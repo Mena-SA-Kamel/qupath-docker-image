@@ -135,12 +135,23 @@ Icon=/home/ubuntu/Applications/QuPath-0.2.2/lib/QuPath-0.2.2.png" >> ~/.local/sh
 RUN cp ~/.local/share/applications/QuPath.desktop ~/.config/autostart/.
 RUN cp ~/.local/share/applications/QuPath.desktop ~/Desktop/.
 
-RUN chgrp -R 0 /root && \
-    chmod -R g=u /root
-    
-RUN chgrp -R 0 ~/Desktop/QuPath.desktop && \
-    chmod -R g=u ~/Desktop/QuPath.desktop 
-# RUN chmod -R 755 ~/Desktop/QuPath.desktop
+RUN chmod -R 755 ~/Desktop/QuPath.desktop
+
+RUN chgrp -R 0 ~/Desktop/QuPath.desktop &&
+chmod -R g+rwX ~/Desktop/QuPath.desktop &&
+chmod -R g=u ~/Desktop/QuPath.desktop
+
+RUN chgrp -R 0 /root &&
+chmod -R g+rwX /root &&
+chmod -R g=u /root
+
+RUN chgrp -R 0 /usr/local/bin/ &&
+chmod -R g+rwX /usr/local/bin/ &&
+chmod -R g=u /usr/local/bin/
+
+RUN chgrp -R 0 /etc/supervisor/conf.d/ &&
+chmod -R g+rwX /etc/supervisor/conf.d/ &&
+chmod -R g=u /etc/supervisor/conf.d/
 
 EXPOSE 80
 ENV HOME=/home/ubuntu \
@@ -148,4 +159,4 @@ ENV HOME=/home/ubuntu \
     RESOLUTION=2560x1440
 HEALTHCHECK --interval=30s --timeout=5s CMD curl --fail http://127.0.0.1:6079/api/health
 
-# ENTRYPOINT ["/startup.sh"]
+ENTRYPOINT ["/startup.sh"]
