@@ -166,6 +166,6 @@ EXPOSE 80
 ENV HOME=/home/ubuntu \
     SHELL=/bin/bash \
     RESOLUTION=2560x1440
-HEALTHCHECK --interval=30s --timeout=5s CMD curl --fail http://127.0.0.1:6079/api/health
+# HEALTHCHECK --interval=30s --timeout=5s CMD curl --fail http://127.0.0.1:6079/api/health
 
 ENTRYPOINT ["/startup.sh"]
