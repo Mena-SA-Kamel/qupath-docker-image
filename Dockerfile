@@ -162,7 +162,7 @@ RUN chgrp -R 0 /etc/ \
     && chmod -R g=u /etc/
     
 
-EXPOSE 80
+EXPOSE 6080
 ENV HOME=/home/ubuntu \
     SHELL=/bin/bash \
     RESOLUTION=2560x1440
